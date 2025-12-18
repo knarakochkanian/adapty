@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  background: #f6efe9;
+  color: #0f0f0f;
+}
+
+a {
+  text-decoration: none;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    rgba(123, 92, 255, 0.5),
+    rgba(255, 153, 102, 0.4)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.text-gradient-anim {
+  --gradient: linear-gradient(
+    130deg,
+    rgba(13, 147, 242, 1),
+    rgba(103, 32, 255, 1),
+    rgba(156, 81, 213, 1),
+    rgba(13, 147, 242, 1),
+    rgba(103, 32, 255, 1),
+    rgba(156, 81, 213, 1),
+    rgba(13, 147, 242, 1),
+    rgba(103, 32, 255, 1),
+    rgba(156, 81, 213, 1),
+    rgba(13, 147, 242, 1),
+    rgba(103, 32, 255, 1),
+    rgba(156, 81, 213, 1)
+  );
+  background-image: var(--gradient);
+  background-size: 600% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: AnimatedGradientBgLeft 15s linear infinite;
+  animation-delay: -4.5s;
+}
+
+@keyframes AnimatedGradientBgLeft {
+  0% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 75% 100%;
+  }
+}
